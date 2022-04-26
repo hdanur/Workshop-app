@@ -1,0 +1,18 @@
+:host {
+  ul {
+  }
+
+  li {
+    list-style-type: none;
+    padding: 6px;
+
+    border: 2px solid teal;
+    border-radius: 4px;
+
+    margin-bottom: 12px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+}
