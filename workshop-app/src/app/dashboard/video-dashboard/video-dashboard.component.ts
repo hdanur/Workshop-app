@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 // import { HttpClient} from '@angular/common/http'
 import { Video } from '../types';
 // import { videoData } from '../videoList-data';
-import { VideoDataService } from 'src/app/video-data.service';
+import { VideoDataService } from '../../video-data.service';
 
 
 // const apiUrl = 'https://api.angularbootcamp.com';
@@ -27,10 +27,9 @@ export class VideoDashboardComponent  {
     //     .get<Video[]>(apiUrl + '/videos')
     //     .subscribe((videos) => (this.videoList = videos));
     // }
-    constructor(svc: VideoDataService)  {
-      svc.loadVedios().subscribe(videos => {
+    constructor(vds: VideoDataService)  {
+      vds.loadVedios().subscribe(videos => {
         this.videoList = videos;
     });
   }
 }
-

@@ -10,12 +10,9 @@ const apiUrl = 'https://api.angularbootcamp.com';
   providedIn: 'root'
 })
 export class VideoDataService {
-
-  videoList: Video[] = [];
-
   constructor(private http: HttpClient){}
 
-  loadVedios(): Observable<Video[]> {
+  loadVedios() {
     return this.http.get<Video[]>(apiUrl + '/videos')
   }
 
