@@ -1,1 +1,6 @@
-<p>video-player works!</p>
+<div *ngIf="video; else noSelectedVideoMessage">
+  {{ video.title }}
+</div>
+<ng-template #noSelectedVideoMessage>
+  Please Select A Video From The Left List
+</ng-template>

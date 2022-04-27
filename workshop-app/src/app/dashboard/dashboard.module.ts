@@ -5,6 +5,7 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
 
 
 
@@ -13,7 +14,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     VideoDashboardComponent,
     VideoListComponent,
     VideoPlayerComponent,
-    StatFiltersComponent
+    StatFiltersComponent,
+    VideoThumbnailComponent
   ],
   imports: [
     CommonModule, DashboardRoutingModule

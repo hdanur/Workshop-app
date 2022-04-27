@@ -3,6 +3,7 @@
   }
 
   li {
+    cursor: pointer;
     list-style-type: none;
     padding: 6px;
 
@@ -10,6 +11,13 @@
     border-radius: 4px;
 
     margin-bottom: 12px;
+    &:hover {
+      background-color: grey;
+    }
+    &.selected {
+      background-color: teal;
+      color: white;
+    }
 
     img {
       max-width: 200px;

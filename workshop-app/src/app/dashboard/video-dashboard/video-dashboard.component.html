@@ -1,3 +1,7 @@
-<app-video-list></app-video-list>
-<app-video-player></app-video-player>
+<app-video-list
+  [videos]="videoList"
+  [selectedVideo]="currentVideo"
+  (videoSelected)="chooseVideo($event)"
+></app-video-list>
+<app-video-player [video]="currentVideo"></app-video-player>
 <app-stat-filters></app-stat-filters>
