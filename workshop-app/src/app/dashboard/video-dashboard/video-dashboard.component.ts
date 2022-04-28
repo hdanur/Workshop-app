@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 import { Video } from '../types';
 // import { videoData } from '../videoList-data';
 import { VideoDataService } from '../../video-data.service';
+import { map, Observable } from 'rxjs';
 
-
+export interface VideoWithThumbnail extends Video {
+  imgUrl: string;
+}
 // const apiUrl = 'https://api.angularbootcamp.com';
 
 @Component({
@@ -13,8 +16,20 @@ import { VideoDataService } from '../../video-data.service';
   styleUrls: ['./video-dashboard.component.scss']
 })
 export class VideoDashboardComponent  {
-  videoList: Video[] = [];
+  videoList: Observable<VideoWithThumbnail[]>;
   currentVideo: Video | undefined;
+  // videoList: Video[] = [];
+  constructor(vds: VideoDataService) {
+    this.videoList = vds.loadVedios().pipe(
+      map((videos) =>
+        videos.map((video) => ({
+          imgUrl: `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`,
+          ...video,
+        }))
+      )
+    );
+  }
+
   chooseVideo(video: Video) {
     this.currentVideo = video;
   }
@@ -27,9 +42,5 @@ export class VideoDashboardComponent  {
     //     .get<Video[]>(apiUrl + '/videos')
     //     .subscribe((videos) => (this.videoList = videos));
     // }
-    constructor(vds: VideoDataService)  {
-      vds.loadVedios().subscribe(videos => {
-        this.videoList = videos;
-    });
+
   }
-}

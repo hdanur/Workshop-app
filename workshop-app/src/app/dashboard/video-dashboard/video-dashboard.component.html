@@ -1,7 +1,8 @@
 <app-video-list
-  [videos]="videoList"
+  [videos]="(videoList | async) ?? []"
   [selectedVideo]="currentVideo"
   (videoSelected)="chooseVideo($event)"
 ></app-video-list>
 <app-video-player [video]="currentVideo"></app-video-player>
 <app-stat-filters></app-stat-filters>
+
